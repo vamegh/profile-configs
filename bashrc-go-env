@@ -1,0 +1,13 @@
+echo "Sorting out all of the Go environment variables"
+gohome=/opt/projects/golang
+export GOPATH=$gohome:$gohome/goeg:/opt/projects/ev9/idea-go/autobuilder_api
+export PATH=$PATH:$gohome/bin:/opt/projects/ev9/idea-go/autobuilder_api/bin
+echo $GOPATH
+export GOARCH="amd64"
+export GOOS="linux"
+export GOROOT="/usr/lib/go"
+
+## Android tool
+export PATH=${PATH}:/opt/Projects/android-sdk-linux/tools:/opt/Projects/android-sdk-linux/platform-tools:/opt/Projects/android-sdk-linux/platform-tools
+##export PATH=${PATH}:/opt/Projects/android-sdk-linux/platform-tools
+

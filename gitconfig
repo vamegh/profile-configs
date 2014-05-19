@@ -1,0 +1,21 @@
+[user]
+	name = Vamegh Hedayati
+	email = vhedayati@ev9.eu
+[push]
+	default = matching
+[color]
+	ui = true
+[alias]
+    ci = commit -a
+    co = checkout
+    st = status -a
+    praise = blame
+[apply]
+    whitespace = strip
+[diff]
+    color = auto
+    rename = copy
+[pager]
+    color = true
+[status]
+    color = auto
