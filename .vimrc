@@ -1,11 +1,19 @@
+" Install Pathogen
+" execute pathogen#infect()
+" call pathogen#runtime_append_all_bundles()
+" call pathogen#helptags()
+
 " Enable syntax highlighting
 syntax on
 syntax enable
-set background=light
-"set background=dark
+set background=dark
+"set background=Darjlight
 "colorscheme solarized
 "colorscheme xoria256
 "colorscheme solarized
+colorscheme jellybeans
+
+"Plugin 'speshak/vim-cfn'
 
 " Set the Window Title
 set title
@@ -16,7 +24,7 @@ set nocompatible
 " Work out filetype
 filetype on
 "filetype plugin on
-"filetype plugin indent on
+filetype plugin indent on
 
 " Turn backup off...
 set nobackup
@@ -81,17 +89,36 @@ set wrapscan
 
 nmap ;tr :%s/\s\+$//
 vmap ;tr  :s/\s\+$//
-map q :q<CR>
-map h :Ex<CR>
+"map q :q<CR>
+"map h :Ex<CR>
 
 noremap <silent> <C-l> :nohl<CR<C-l>
 
 function StripTrailingWhitespace()
-    normal mz
-    normal Hmy
-    exec '%s/\s*$//g'
-    normal 'yz<cr>
-    normal `z
+   normal mz
+   normal Hmy
+   exec '%s/\s*$//g'
+   normal 'yz<cr>
+   normal `z
 endfunction
 
-autocmd BufWritePre * call StripTrailingWhitespace()
+" autocmd BufWritePre * call StripTrailingWhitespace()
+
+" Uncomment the following to have Vim jump to the last position when
+" reopening a file
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+endif
+
+:nmap <C-N><C-N> :set invnumber<CR>
+
+" Syntastic Settings
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+" let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_auto_loc_list = 1
+" let g:syntastic_check_on_open = 1
+" let g:syntastic_check_on_wq = 0
+
